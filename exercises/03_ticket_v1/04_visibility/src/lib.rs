@@ -1,12 +1,12 @@
 mod ticket {
     pub struct Ticket {
         title: String,
-        pub(super) description: String,
+        description: String,
         status: String,
     }
 
     impl Ticket {
-        fn new(title: String, description: String, status: String) -> Ticket {
+        pub fn new(title: String, description: String, status: String) -> Ticket {
             if title.is_empty() {
                 panic!("Title cannot be empty");
             }
@@ -44,7 +44,7 @@ mod tests {
     // visibility to make the use statement compile!
     // Once you have verified that it indeed doesn't compile, comment it out.
     fn should_not_be_possible() {
-        // let ticket = Ticket::new("A title".into(), "A description".into(), "To-Do".into());
+        let ticket = Ticket::new("A title".into(), "A description".into(), "To-Do".into());
 
         // You should be seeing this error when trying to run this exercise:
         //
